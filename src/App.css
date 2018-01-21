@@ -1,28 +1,114 @@
 .App {
   text-align: center;
+  background: linear-gradient(141deg, #0fb8ad 0%, #1FC8D2 51%, #2cb5e8 75%);
 }
 
-.App-logo {
+/*.App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
-}
+}*/
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+  /*background-color: gray;*/
+  /*background: linear-gradient(141deg, #0fb8ad 0%, #1FC8D2 51%, #2cb5e8 75%);*/
+  padding: 20px 70px 20px 70px;
+  /*top, right, bottom, left*/
   color: white;
+  margin-left: 15%;
+  margin-right: 15%;
+  font-size: large;
 }
 
 .App-title {
-  font-size: 1.5em;
+  font-size: 2.5em;
 }
 
 .App-intro {
   font-size: large;
 }
 
-@keyframes App-logo-spin {
+#disclaimer {
+  font-size: small;
+  padding: 50px 90px 50px 90px;
+  color: white;
+}
+
+.App-footer {
+  font-size: large;
+  background-color: gray;
+  padding: 10px;
+  color: gold;
+}
+
+.CreateUrlForm {
+  /*border: 2px solid red;*/
+  border-radius: 25px;
+  background: linear-gradient(to right, green, red);
+  color: white;
+
+  padding: 30px 20px 20px 20px;
+  margin: 5px 10px 5px 10px;
+  /*top, right, bottom, left*/
+  line-height: 1.1;
+}
+
+.AllUrls {
+  border: 2px solid green;
+  border-radius: 25px;
+  background: white;
+  margin: 5px 15px 50px 15px;
+  padding: 10px 10px 10px 10px;
+  /*top right bottom left*/
+}
+
+.EachUrl {
+  border: 3px solid orange;
+  background: white;
+  margin: 5px 15px 50px 15px;
+  /*top right bottom left*/
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
+/*validations*/
+
+.field-container {
+  text-align: left;
+}
+.field-container span {
+  display: none;
+}
+
+.field-container.error:before {
+  content: "x";
+  display: inline-block;
+  float: right;
+  margin-top: 10px;
+  font-weight: 600;
+  color: red;
+}
+.field-container.error span {
+  display: inline-block;
+  font-size: 24px;
+  text-align: left;
+  width: 100%;
+  font-style: italic;
+  color: red;
+}
+.field-container.error input {
+  border: 2px solid red;
+}
+
+/*validations*/
+
+
+/*@keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-}
+}*/
