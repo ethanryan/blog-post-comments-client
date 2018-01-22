@@ -47,6 +47,10 @@ class BlogPostCommentsContainer extends Component {
     .then( data => this.setState({
       posts: data
     }) )
+    api.getComments()
+    .then( data => this.setState({
+      comments: data
+    }) )
   }
 
   handleSubmitPost(username, content) {
@@ -89,6 +93,7 @@ render() {
       <AllPosts
         //props for AllPosts
         posts={this.state.posts}
+        comments={this.state.comments}
 
         //props for CreateCommentForm
         // createCommentForm={<CreateCommentForm/>}

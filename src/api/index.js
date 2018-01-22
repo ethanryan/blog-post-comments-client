@@ -17,6 +17,18 @@ export function getPosts() {
   }).then( response => response.json() )
 }
 
+export function getComments() {
+  return fetch(`${baseUrl}/comments`, {
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': localStorage.getItem('jwt')
+    },
+    mode: 'cors',
+    method: 'GET',
+  }).then( response => response.json() )
+}
+
 export function createPost( postObject ) {
   return fetch(`${baseUrl}/posts`, {
     headers: {

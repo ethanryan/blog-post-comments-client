@@ -52,6 +52,17 @@
   line-height: 1.1;
 }
 
+.CreateCommentForm {
+  /*border: 2px solid red;*/
+  border-radius: 25px;
+  background: linear-gradient(to right, yellow, orange, yellow);
+  color: purple;
+  padding: 20px 20px 20px 20px;
+  margin: 15px 300px 15px 300px;
+  /*top, right, bottom, left*/
+  line-height: 1.1;
+}
+
 .AllPosts {
   border: 2px solid green;
   border-radius: 25px;
@@ -62,6 +73,13 @@
 }
 
 .EachPost {
+  border: 3px solid purple;
+  background: white;
+  margin: 5px 15px 50px 15px;
+  /*top right bottom left*/
+}
+
+.EachComment {
   border: 3px solid orange;
   background: white;
   margin: 5px 15px 50px 15px;
