@@ -33,7 +33,8 @@ const AllPosts = (props) => {
               <div key={commentObject.id ? commentObject.id : "commentObject.id here"} className="EachComment">
                 <p>{commentObject.username ? commentObject.username : "commentObject.name here"}</p>
                 <h2>{commentObject.content ? commentObject.content : "commentObject.content here"}</h2>
-                <p>Posted by {commentObject.username ? commentObject.username : "commentObject.name here"} on: {commentObject.created_at ? commentObject.created_at : "commentObject.created_at here"}</p>
+                <p>Comment originally posted on: {commentObject.created_at ? commentObject.created_at : "commentObject.created_at here"}</p>
+                <p>Updated by {commentObject.username ? commentObject.username : "commentObject.name here"} on: {commentObject.updated_at ? commentObject.updated_at : "commentObject.updated_at here"}</p>
                 <p>Update comment: <EditCommentForm
                                       handleSubmit={props.handleUpdateComment}
                                       postId={postObject.id}
