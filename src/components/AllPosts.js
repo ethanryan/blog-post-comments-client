@@ -2,7 +2,7 @@ import React from 'react'
 
 import CreateCommentForm from '../components/CreateCommentForm'
 
-import { Card } from 'semantic-ui-react'
+import { Card, Button } from 'semantic-ui-react'
 
 const AllPosts = (props) => {
 
@@ -46,7 +46,10 @@ const AllPosts = (props) => {
                 <p>{commentObject.username ? commentObject.username : "commentObject.name here"}</p>
                 <h2>{commentObject.content ? commentObject.content : "commentObject.content here"}</h2>
                 <p>Posted by {commentObject.username ? commentObject.username : "commentObject.name here"} on: {commentObject.created_at ? commentObject.created_at : "commentObject.created_at here"}</p>
-
+                <Button.Group floated='right'>
+                <Button compact color='red'
+                  onClick={() => {props.handleDeleteComment(commentObject.id)}}>Delete</Button>
+                </Button.Group>
               </div>
             )}
         </Card.Content>

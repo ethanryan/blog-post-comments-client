@@ -61,3 +61,15 @@ export function createComment( commentObject ) {
     })
   }).then( res => res.json() )
 }
+
+export function deleteComment(id) {
+  return fetch(`${baseUrl}/comments/${id}`, {
+    method: 'DELETE',
+    mode: 'cors',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': localStorage.getItem('jwt')
+    }
+  }).then( res => res.json() )
+}

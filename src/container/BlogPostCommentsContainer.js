@@ -53,6 +53,7 @@ class BlogPostCommentsContainer extends Component {
     }) )
   }
 
+
   handleSubmitPost(username, content) {
     api.createPost(username, content)
       .then( post => this.setState(
@@ -63,6 +64,7 @@ class BlogPostCommentsContainer extends Component {
     )
   }
 
+
   handleSubmitComment(username, content) {
     api.createComment(username, content)
       .then( comment => this.setState(
@@ -72,6 +74,19 @@ class BlogPostCommentsContainer extends Component {
       )
     )
   }
+
+
+  handleDeleteComment(id) {
+  if (window.confirm("Are you sure you want to delete this comment? 😱😱😱 ")) {
+    api.deleteComment(id)
+    .then( () => {
+      this.setState( prevState => ({
+        comments: prevState.comments.filter( comment => comment.id !== id )
+      }) )
+    })
+  }
+  // this.props.history.push('/') //redirect to root
+}
 
 
 render() {
@@ -94,9 +109,9 @@ render() {
         //props for AllPosts
         posts={this.state.posts}
         comments={this.state.comments}
+        handleDeleteComment={this.handleDeleteComment.bind(this)}
 
         //props for CreateCommentForm
-        // createCommentForm={<CreateCommentForm/>}
         handleSubmit={this.handleSubmitComment.bind(this)}
       />
 
