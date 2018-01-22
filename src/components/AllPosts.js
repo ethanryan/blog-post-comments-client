@@ -1,6 +1,7 @@
 import React from 'react'
 
 import CreateCommentForm from '../components/CreateCommentForm'
+import EditCommentForm from '../components/EditCommentForm'
 
 import { Card, Button } from 'semantic-ui-react'
 
@@ -14,14 +15,6 @@ const AllPosts = (props) => {
   // const filteredComments = allOfTheComments.filter(comment => comment.post_id === postObject.id)
   const arrayOfPostIds = allOfThePosts.reverse().map( (postObject) => postObject.id)
 
-  // const filteredComments
-  // const filteredComments = allOfTheComments.filter(comment => comment.post_id === arrayOfPostIds.find(function(element) { return element === comment.post_id }) )
-  //filteredComments is an array
-
-  // function getPostObjectId(number) {
-  //   return number
-  // }
-
   const eachPost = allOfThePosts.map( (postObject) =>
 
     <div key={postObject.id ? postObject.id : "postObject.id here"} className="EachPost">
@@ -34,24 +27,37 @@ const AllPosts = (props) => {
             <p>{postObject.username ? postObject.username : "postObject.name here"}</p>
             <h2>{postObject.content ? postObject.content : "postObject.content here"}</h2>
             <p>Posted by {postObject.username ? postObject.username : "postObject.name here"} on: {postObject.created_at ? postObject.created_at : "postObject.created_at here"}</p>
-            <p>Total comments: {allOfTheComments.filter(comment => comment.post_id === postObject.id).length}</p>
+            <p>Total comments: {allOfTheComments.length > 1 ? allOfTheComments.filter(comment => comment.post_id === postObject.id).length : "total comments here"}</p>
             <p>Leave a comment: <CreateCommentForm
                                   handleSubmit={props.handleSubmit}
                                   postId={postObject.id}
                                 />
             </p>
 
-            {allOfTheComments.filter(comment => comment.post_id === postObject.id).map( (commentObject) =>
+            {allOfTheComments.length > 1 ? allOfTheComments.filter(comment => comment.post_id === postObject.id).map( (commentObject) =>
               <div key={commentObject.id ? commentObject.id : "commentObject.id here"} className="EachComment">
                 <p>{commentObject.username ? commentObject.username : "commentObject.name here"}</p>
                 <h2>{commentObject.content ? commentObject.content : "commentObject.content here"}</h2>
                 <p>Posted by {commentObject.username ? commentObject.username : "commentObject.name here"} on: {commentObject.created_at ? commentObject.created_at : "commentObject.created_at here"}</p>
+                <p>Update comment: <EditCommentForm
+                                      handleSubmit={props.handleUpdateComment}
+                                      // handleSubmit={props.handleUpdateComment(commentObject.id)}
+                                      postId={postObject.id}
+                                      username={commentObject.username}
+                                      content={commentObject.content}
+                                      id={commentObject.id}
+                                    />
+                </p>
+                {/* <Button.Group floated='left'>
+                <Button compact color='green'
+                  onClick={() => {props.handleUpdateComment(commentObject.id)}}>Update</Button>
+                </Button.Group> */}
                 <Button.Group floated='right'>
                 <Button compact color='red'
                   onClick={() => {props.handleDeleteComment(commentObject.id)}}>Delete</Button>
                 </Button.Group>
               </div>
-            )}
+            ) : "allOfTheComments here..."}
         </Card.Content>
       </Card>
     </div>

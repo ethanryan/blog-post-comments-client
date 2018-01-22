@@ -62,6 +62,23 @@ export function createComment( commentObject ) {
   }).then( res => res.json() )
 }
 
+export function updateComment( commentObject ) {
+  return fetch(`${baseUrl}/comments/${commentObject.id}`, {
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': localStorage.getItem('jwt')
+    },
+    mode: 'cors',
+    method: 'PATCH',
+    body: JSON.stringify({
+      username: commentObject.username,
+      content: commentObject.content,
+      post_id: commentObject.post_id,
+    })
+  }).then( res => res.json() )
+}
+
 export function deleteComment(id) {
   return fetch(`${baseUrl}/comments/${id}`, {
     method: 'DELETE',

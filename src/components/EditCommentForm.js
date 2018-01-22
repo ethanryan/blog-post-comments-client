@@ -2,21 +2,28 @@ import React, { Component } from 'react'
 
 import { Form, Grid, Segment } from 'semantic-ui-react'
 
-class CreateCommentForm extends Component {
+class EditCommentForm extends Component {
 
   constructor(props) {
     super(props)
     this.state=({
-      username: '',
-      content: '',
+      username: props.username,
+      content: props.content,
       post_id: props.postId,
+      id: props.id,
       valid: true
     })
     this.handleUsernameChange = this.handleUsernameChange.bind(this)
     this.handleContentChange = this.handleContentChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    //this.handleEmailChange = this.handleEmailChange.bind(this)
   }
-  
+
+  // handleChange(event) {
+  //   this.setState({
+  //     username: event.target.value,
+  //   })
+  // }
 
   handleUsernameChange(event) {
     const username = event.target.value
@@ -47,22 +54,23 @@ class CreateCommentForm extends Component {
     const commentObject = {
       username: this.state.username,
       content: this.state.content,
-      post_id: this.state.post_id
+      post_id: this.state.post_id,
+      id: this.state.id
     }
-    console.log('CreateCommentForm submitted: ', this.state)
+    console.log('EditCommentForm submitted: ', this.state)
     if (this.state.username === "") {
-      alert('Must have a username if you want to be heard!')
+      alert('Updated comment must have a username!')
     }
     if (this.state.content === "") {
-      alert('Must say something if you want to be heard!')
+      alert('Updated comment must have some content!')
     }
     else {
       this.props.handleSubmit( commentObject )
-      this.setState({
-        username: '',
-        content: '',
-        post_id: ''
-      })
+      // this.setState({
+      //   username: '',
+      //   content: '',
+      //   post_id: ''
+      // })
     }
   }
 
@@ -77,19 +85,22 @@ class CreateCommentForm extends Component {
       fieldContainerClass += ' error'
     }
 
-    // console.log('state from CreateCommentForm: ', this.state)
-    // console.log('props from CreateCommentForm: ', this.props)
+    console.log('state from EditCommentForm: ', this.state)
+    console.log('^^^^^^^^^props from EditCommentForm: ', this.props)
     return(
 
-      <div className="CreateCommentForm">
+      <div className="EditCommentForm">
 
-        <h1>Create Comment Here</h1>
+        <h1>Edit Comment Here ~~~~~~~~~~ </h1>
 
         <Grid centered columns={2}>
           <Grid.Row centered textAlign='center'>
             <Grid.Column>
 
               <Form onSubmit={this.handleSubmit}>
+
+                <p>Comment ID: {this.state.id}</p>
+                <p>Comment on Post #{this.state.post_id}</p>
 
                 <div className={fieldContainerClass}>
                 <Form.Field
@@ -121,7 +132,7 @@ class CreateCommentForm extends Component {
                     <Form.Button
                       content="Submit"
                       type="submit"
-                      primary
+                      color="green"
                       disabled={isDisabled}
                     />
                   </Segment>
@@ -136,4 +147,4 @@ class CreateCommentForm extends Component {
     }
   }
 
-  export default CreateCommentForm
+  export default EditCommentForm

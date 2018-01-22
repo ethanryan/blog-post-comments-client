@@ -3,9 +3,8 @@ import React, {Component} from 'react'
 import * as api from '../api'
 
 import CreatePostForm from '../components/CreatePostForm'
-// import CreateCommentForm from '../components/CreateCommentForm'
-import AllPosts from '../components/AllPosts'
 
+import AllPosts from '../components/AllPosts'
 
 class BlogPostCommentsContainer extends Component {
   constructor(props) {
@@ -26,22 +25,6 @@ class BlogPostCommentsContainer extends Component {
     }
   }
 
-  // componentDidMount() {
-  //   api.getUrls()
-  //   .then( data => this.setState({
-  //     urls: data
-  //   }) )
-  // }
-  //
-  // handleSubmit(url) {
-  //   api.createUrl(url)
-  //   .then( url => this.setState(
-  //     prevState => ({
-  //       urls: [...prevState.urls, url]
-  //     })
-  //   )
-  // )
-  // }
   componentDidMount() {
     api.getPosts()
     .then( data => this.setState({
@@ -53,7 +36,6 @@ class BlogPostCommentsContainer extends Component {
     }) )
   }
 
-
   handleSubmitPost(username, content) {
     api.createPost(username, content)
       .then( post => this.setState(
@@ -63,7 +45,6 @@ class BlogPostCommentsContainer extends Component {
       )
     )
   }
-
 
   handleSubmitComment(username, content) {
     api.createComment(username, content)
@@ -75,18 +56,32 @@ class BlogPostCommentsContainer extends Component {
     )
   }
 
+  handleUpdateComment(updatedComment) {
+    api.updateComment(updatedComment)
+    .then( comment =>
+      this.updateComments(comment) //calling function below
+    )
+  }
+
+  updateComments(comment) {
+    var comments = this.state.comments.filter((eachComment) => { return eachComment.id !== comment.id })
+    //filtering all comments, excluding unedited comment...
+    comments.push(comment) //pushing editing comment into all coments...
+    this.setState({
+      comments: comments
+    })
+  }
 
   handleDeleteComment(id) {
   if (window.confirm("Are you sure you want to delete this comment? 😱😱😱 ")) {
     api.deleteComment(id)
-    .then( () => {
-      this.setState( prevState => ({
-        comments: prevState.comments.filter( comment => comment.id !== id )
-      }) )
-    })
+      .then( () => {
+        this.setState( prevState => ({
+          comments: prevState.comments.filter( comment => comment.id !== id )
+        }) )
+      })
+    }
   }
-  // this.props.history.push('/') //redirect to root
-}
 
 
 render() {
@@ -100,15 +95,11 @@ render() {
         handleSubmit={this.handleSubmitPost.bind(this)}
       />
 
-      {/* <CreateCommentForm
-        //props for CreateCommentForm
-        handleSubmit={this.handleSubmitComment.bind(this)}
-      /> */}
-
       <AllPosts
         //props for AllPosts
         posts={this.state.posts}
         comments={this.state.comments}
+        handleUpdateComment={this.handleUpdateComment.bind(this)}
         handleDeleteComment={this.handleDeleteComment.bind(this)}
 
         //props for CreateCommentForm
