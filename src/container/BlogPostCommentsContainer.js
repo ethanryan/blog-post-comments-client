@@ -3,6 +3,7 @@ import React, {Component} from 'react'
 import * as api from '../api'
 
 import CreatePostForm from '../components/CreatePostForm'
+// import CreateCommentForm from '../components/CreateCommentForm'
 import AllPosts from '../components/AllPosts'
 
 
@@ -48,14 +49,24 @@ class BlogPostCommentsContainer extends Component {
     }) )
   }
 
-  handleSubmit(username, content) {
+  handleSubmitPost(username, content) {
     api.createPost(username, content)
-    .then( post => this.setState(
-      prevState => ({
-        posts: [...prevState.posts, post]
-      })
+      .then( post => this.setState(
+        prevState => ({
+          posts: [...prevState.posts, post]
+        })
+      )
     )
-  )
+  }
+
+  handleSubmitComment(username, content) {
+    api.createComment(username, content)
+      .then( comment => this.setState(
+        prevState => ({
+          comments: [...prevState.comments, comment]
+        })
+      )
+    )
   }
 
 
@@ -67,12 +78,21 @@ render() {
 
       <CreatePostForm
         //props for CreatePostForm
-        handleSubmit={this.handleSubmit.bind(this)}
+        handleSubmit={this.handleSubmitPost.bind(this)}
       />
+
+      {/* <CreateCommentForm
+        //props for CreateCommentForm
+        handleSubmit={this.handleSubmitComment.bind(this)}
+      /> */}
 
       <AllPosts
         //props for AllPosts
         posts={this.state.posts}
+
+        //props for CreateCommentForm
+        // createCommentForm={<CreateCommentForm/>}
+        handleSubmit={this.handleSubmitComment.bind(this)}
       />
 
     </div>

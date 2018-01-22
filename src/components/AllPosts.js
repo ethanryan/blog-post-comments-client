@@ -1,5 +1,7 @@
 import React from 'react'
 
+import CreateCommentForm from '../components/CreateCommentForm'
+
 import { Card } from 'semantic-ui-react'
 
 const AllPosts = (props) => {
@@ -18,13 +20,18 @@ const AllPosts = (props) => {
             <p>{postObject.username ? postObject.username : "postObject.name here"}</p>
             <h2>{postObject.content ? postObject.content : "postObject.content here"}</h2>
             <p>Posted by {postObject.username ? postObject.username : "postObject.name here"} on: {postObject.created_at ? postObject.created_at : "postObject.created_at here"}</p>
+            <p>Leave a comment: <CreateCommentForm
+              handleSubmit={props.handleSubmit}
+            /> </p>
         </Card.Content>
       </Card>
     </div>
   )
 
 //console.log('allOfThePosts.length: ', allOfThePosts.length)
-//console.log('eachPost: ', eachPost)
+console.log('AllPosts props: ', props)
+console.log('allOfThePosts: ', allOfThePosts)
+console.log('eachPost: ', eachPost)
 
 return(
   <div className="AllPosts">
