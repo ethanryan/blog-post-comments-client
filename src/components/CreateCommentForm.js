@@ -9,7 +9,7 @@ class CreateCommentForm extends Component {
     this.state=({
       username: '',
       content: '',
-      post_id: 1, ////change this!!! must be id of whatever post it is in.
+      post_id: props.postId,
       valid: true
     })
     this.handleUsernameChange = this.handleUsernameChange.bind(this)

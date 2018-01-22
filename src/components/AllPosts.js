@@ -37,6 +37,7 @@ const AllPosts = (props) => {
             <p>Total comments: {allOfTheComments.filter(comment => comment.post_id === postObject.id).length}</p>
             <p>Leave a comment: <CreateCommentForm
                                   handleSubmit={props.handleSubmit}
+                                  postId={postObject.id}
                                 />
             </p>
 
