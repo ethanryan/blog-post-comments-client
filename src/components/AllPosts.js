@@ -10,11 +10,6 @@ const AllPosts = (props) => {
   const allOfThePosts = props.posts //an array
   const allOfTheComments = props.comments //an array
 
-  //const result = words.filter(word => word.length > 6);
-
-  // const filteredComments = allOfTheComments.filter(comment => comment.post_id === postObject.id)
-  const arrayOfPostIds = allOfThePosts.reverse().map( (postObject) => postObject.id)
-
   const eachPost = allOfThePosts.map( (postObject) =>
 
     <div key={postObject.id ? postObject.id : "postObject.id here"} className="EachPost">
@@ -41,7 +36,6 @@ const AllPosts = (props) => {
                 <p>Posted by {commentObject.username ? commentObject.username : "commentObject.name here"} on: {commentObject.created_at ? commentObject.created_at : "commentObject.created_at here"}</p>
                 <p>Update comment: <EditCommentForm
                                       handleSubmit={props.handleUpdateComment}
-                                      // handleSubmit={props.handleUpdateComment(commentObject.id)}
                                       postId={postObject.id}
                                       username={commentObject.username}
                                       content={commentObject.content}
@@ -64,11 +58,9 @@ const AllPosts = (props) => {
   )
 
 //console.log('allOfThePosts.length: ', allOfThePosts.length)
-console.log('AllPosts props: ', props)
-console.log('allOfThePosts: ', allOfThePosts)
-console.log('eachPost: ', eachPost)
-console.log('arrayOfPostIds ::::', arrayOfPostIds)
-
+// console.log('AllPosts props: ', props)
+// console.log('allOfThePosts: ', allOfThePosts)
+// console.log('eachPost: ', eachPost)
 
 return(
   <div className="AllPosts">
