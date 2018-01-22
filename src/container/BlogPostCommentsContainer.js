@@ -1,17 +1,26 @@
 import React, {Component} from 'react'
 
-//import * as api from '../api'
+import * as api from '../api'
 
-//import CreateUrlForm from '../components/CreateUrlForm'
-//import AllUrls from '../components/AllUrls'
+import CreatePostForm from '../components/CreatePostForm'
+import AllPosts from '../components/AllPosts'
 
 
 class BlogPostCommentsContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      urls: [
-        {link: 'url_here'}
+      posts: [
+        {
+          username: 'username_here',
+          content: 'content_here'
+        }
+      ],
+      comments: [
+        {
+          username: 'username_here',
+          content: 'content_here'
+        }
       ],
     }
   }
@@ -32,6 +41,22 @@ class BlogPostCommentsContainer extends Component {
   //   )
   // )
   // }
+  componentDidMount() {
+    api.getPosts()
+    .then( data => this.setState({
+      posts: data
+    }) )
+  }
+
+  handleSubmit(username, content) {
+    api.createPost(username, content)
+    .then( post => this.setState(
+      prevState => ({
+        posts: [...prevState.posts, post]
+      })
+    )
+  )
+  }
 
 
 render() {
@@ -40,15 +65,15 @@ render() {
   return(
     <div>
 
-      {/* <CreateUrlForm
-        //props for CreateUrlForm
+      <CreatePostForm
+        //props for CreatePostForm
         handleSubmit={this.handleSubmit.bind(this)}
       />
 
-      <AllUrls
-        //props for AllUrls
-        urls={this.state.urls}
-      /> */}
+      <AllPosts
+        //props for AllPosts
+        posts={this.state.posts}
+      />
 
     </div>
   )

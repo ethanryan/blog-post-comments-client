@@ -40,10 +40,10 @@
   color: gold;
 }
 
-.CreateUrlForm {
+.CreatePostForm {
   /*border: 2px solid red;*/
   border-radius: 25px;
-  background: linear-gradient(to right, green, red);
+  background: linear-gradient(to right, blue, purple, blue);
   color: white;
 
   padding: 30px 20px 20px 20px;
@@ -52,7 +52,7 @@
   line-height: 1.1;
 }
 
-.AllUrls {
+.AllPosts {
   border: 2px solid green;
   border-radius: 25px;
   background: white;
@@ -61,7 +61,7 @@
   /*top right bottom left*/
 }
 
-.EachUrl {
+.EachPost {
   border: 3px solid orange;
   background: white;
   margin: 5px 15px 50px 15px;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import './App.css'
-//import 'semantic-ui-css/semantic.min.css' //for semantic-ui-css
+import 'semantic-ui-css/semantic.min.css' //for semantic-ui-css
 
 import BlogPostCommentsContainer from './container/BlogPostCommentsContainer'
 
@@ -16,7 +16,7 @@ class App extends Component {
             The only place on the interet where anybody can say whatever they want about anything, and anyone else can leave a comment!
           </h2>
         </header>
-        
+
         <BlogPostCommentsContainer />
 
         <div className="App-footer">
