@@ -15,7 +15,7 @@ const AllPosts = (props) => {
     <div key={postObject.id ? postObject.id : "postObject.id here"} className="EachPost">
 
       {/* <Modal trigger={<Button>Show Modal</Button>}> */}
-      <Modal trigger={
+      <Modal className="whiteSpace" trigger={
         <Card fluid >
           <Card.Content>
 

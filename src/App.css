@@ -1,5 +1,10 @@
+.whiteSpace {
+  white-space: pre-wrap;
+}
+
 .App {
   text-align: center;
+  white-space: pre-wrap;
   background: linear-gradient(141deg, #0fb8ad 0%, #1FC8D2 51%, #2cb5e8 75%);
 }
 
@@ -91,6 +96,7 @@
   border: 3px solid purple;
   background: white;
   text-align: left;
+  white-space: pre-wrap;
   margin: 5px 15px 50px 15px;
   /*top right bottom left*/
 }
@@ -98,6 +104,7 @@
 .EachComment {
   border: 3px solid orange;
   background: white;
+  white-space: pre-wrap;
   margin: 5px 15px 50px 15px;
   /*top right bottom left*/
 }
