@@ -16,14 +16,7 @@ class EditCommentForm extends Component {
     this.handleUsernameChange = this.handleUsernameChange.bind(this)
     this.handleContentChange = this.handleContentChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-    //this.handleEmailChange = this.handleEmailChange.bind(this)
   }
-
-  // handleChange(event) {
-  //   this.setState({
-  //     username: event.target.value,
-  //   })
-  // }
 
   handleUsernameChange(event) {
     const username = event.target.value
@@ -66,11 +59,6 @@ class EditCommentForm extends Component {
     }
     else {
       this.props.handleSubmit( commentObject )
-      // this.setState({
-      //   username: '',
-      //   content: '',
-      //   post_id: ''
-      // })
     }
   }
 
