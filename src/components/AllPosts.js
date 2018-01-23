@@ -35,7 +35,16 @@ const AllPosts = (props) => {
 
           <Card.Content extra>
 
-            <p>Posted by {postObject.username ? postObject.username : "postObject.name here"} on: {postObject.created_at ? postObject.created_at : "postObject.created_at here"}</p>
+            <p>Posted by {postObject.username ? postObject.username : "postObject.name here"} on: {postObject.created_at ? new Date(postObject.created_at).toLocaleString('en-US', {
+              weekday: 'short',
+              month: 'short',
+              day: 'numeric',
+              year: 'numeric',
+              hour: 'numeric',
+              minute: 'numeric',
+              hour12: true,
+              timeZoneName: 'short'
+            }) : "postObject.created_at here"}</p>
 
             <p>
               <a>
@@ -71,7 +80,16 @@ const AllPosts = (props) => {
 
           <Card.Content extra>
 
-            <p>Posted by {postObject.username ? postObject.username : "postObject.name here"} on: {postObject.created_at ? postObject.created_at : "postObject.created_at here"}</p>
+            <p>Posted by {postObject.username ? postObject.username : "postObject.name here"} on: {postObject.created_at ? new Date(postObject.created_at).toLocaleString('en-US', {
+              weekday: 'short',
+              month: 'short',
+              day: 'numeric',
+              year: 'numeric',
+              hour: 'numeric',
+              minute: 'numeric',
+              hour12: true,
+              timeZoneName: 'short'
+            }) : "postObject.created_at here"}</p>
 
             <p>
               <a>
@@ -86,8 +104,26 @@ const AllPosts = (props) => {
             <div key={commentObject.id ? commentObject.id : "commentObject.id here"} className="EachComment">
               <p>{commentObject.username ? commentObject.username : "commentObject.name here"}</p>
               <h2>{commentObject.content ? commentObject.content : "commentObject.content here"}</h2>
-              <p>Comment originally posted on: {commentObject.created_at ? commentObject.created_at : "commentObject.created_at here"}</p>
-              <p>Updated by {commentObject.username ? commentObject.username : "commentObject.name here"} on: {commentObject.updated_at ? commentObject.updated_at : "commentObject.updated_at here"}</p>
+              <p>Comment originally posted on: {commentObject.created_at ? new Date(commentObject.created_at).toLocaleString('en-US', {
+                weekday: 'short',
+                month: 'short',
+                day: 'numeric',
+                year: 'numeric',
+                hour: 'numeric',
+                minute: 'numeric',
+                hour12: true,
+                timeZoneName: 'short'
+              }) : "commentObject.created_at here"}</p>
+              <p>Updated by {commentObject.username ? commentObject.username : "commentObject.name here"} on: {commentObject.updated_at ? new Date(commentObject.updated_at).toLocaleString('en-US', {
+                weekday: 'short',
+                month: 'short',
+                day: 'numeric',
+                year: 'numeric',
+                hour: 'numeric',
+                minute: 'numeric',
+                hour12: true,
+                timeZoneName: 'short'
+              }) : "commentObject.updated_at here"}</p>
 
 
               <Card.Content extra>
