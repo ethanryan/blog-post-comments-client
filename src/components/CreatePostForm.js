@@ -14,14 +14,7 @@ class CreatePostForm extends Component {
     this.handleUsernameChange = this.handleUsernameChange.bind(this)
     this.handleContentChange = this.handleContentChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-    //this.handleEmailChange = this.handleEmailChange.bind(this)
   }
-
-  // handleChange(event) {
-  //   this.setState({
-  //     username: event.target.value,
-  //   })
-  // }
 
   handleUsernameChange(event) {
     const username = event.target.value
@@ -107,11 +100,10 @@ class CreatePostForm extends Component {
                 </div>
 
                 <div className={fieldContainerClass}>
-                <Form.Field
+                <Form.TextArea
                   label="Content"
                   placeholder="content here"
-                  autoFocus
-                  control="input"
+                  control="textarea"
                   type="text"
                   value={this.state.content}
                   onChange={this.handleContentChange}

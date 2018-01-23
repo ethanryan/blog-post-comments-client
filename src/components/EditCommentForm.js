@@ -104,11 +104,10 @@ class EditCommentForm extends Component {
                 </div>
 
                 <div className={fieldContainerClass}>
-                <Form.Field
+                <Form.TextArea
                   label="Content"
                   placeholder="content here"
-                  autoFocus
-                  control="input"
+                  control="textarea"
                   type="text"
                   value={this.state.content}
                   onChange={this.handleContentChange}
