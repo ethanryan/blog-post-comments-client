@@ -16,7 +16,7 @@ class CreateCommentForm extends Component {
     this.handleContentChange = this.handleContentChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
-  
+
 
   handleUsernameChange(event) {
     const username = event.target.value
@@ -83,7 +83,7 @@ class CreateCommentForm extends Component {
 
       <div className="CreateCommentForm">
 
-        <h1>Create Comment Here</h1>
+        <h1 className="center">Add Comment Here</h1>
 
         <Grid centered columns={2}>
           <Grid.Row centered textAlign='center'>

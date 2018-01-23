@@ -22,6 +22,7 @@ class BlogPostCommentsContainer extends Component {
           content: 'content_here'
         }
       ],
+      showEditForm: false,
     }
   }
 
@@ -83,6 +84,12 @@ class BlogPostCommentsContainer extends Component {
     }
   }
 
+  handleToggleEditForm = () => {
+   this.setState((prevState, props) => ({
+       showEditForm: !prevState.showEditForm
+   }))
+ };
+
 
 render() {
 
@@ -101,6 +108,8 @@ render() {
         comments={this.state.comments}
         handleUpdateComment={this.handleUpdateComment.bind(this)}
         handleDeleteComment={this.handleDeleteComment.bind(this)}
+        handleToggleEditForm={this.handleToggleEditForm.bind(this)}
+        showEditForm={this.state.showEditForm}
 
         //props for CreateCommentForm
         handleSubmit={this.handleSubmitComment.bind(this)}

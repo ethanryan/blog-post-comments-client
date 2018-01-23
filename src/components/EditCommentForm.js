@@ -85,13 +85,13 @@ class EditCommentForm extends Component {
       fieldContainerClass += ' error'
     }
 
-    console.log('state from EditCommentForm: ', this.state)
-    console.log('^^^^^^^^^props from EditCommentForm: ', this.props)
+    // console.log('state from EditCommentForm: ', this.state)
+    // console.log('props from EditCommentForm: ', this.props)
     return(
 
       <div className="EditCommentForm">
 
-        <h1>Edit Comment Here ~~~~~~~~~~ </h1>
+        <h1 className="center">Edit Comment Here</h1>
 
         <Grid centered columns={2}>
           <Grid.Row centered textAlign='center'>
@@ -99,8 +99,8 @@ class EditCommentForm extends Component {
 
               <Form onSubmit={this.handleSubmit}>
 
-                <p>Comment ID: {this.state.id}</p>
-                <p>Comment on Post #{this.state.post_id}</p>
+                <p className="center">Comment ID: {this.state.id}</p>
+                <p className="center">Comment on Post #{this.state.post_id}</p>
 
                 <div className={fieldContainerClass}>
                 <Form.Field

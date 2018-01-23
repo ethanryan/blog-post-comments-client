@@ -40,6 +40,10 @@
   color: gold;
 }
 
+.center {
+  text-align: center;
+}
+
 .CreatePostForm {
   /*border: 2px solid red;*/
   border-radius: 25px;
@@ -58,7 +62,7 @@
   background: linear-gradient(to right, yellow, orange, yellow);
   color: purple;
   padding: 20px 20px 20px 20px;
-  margin: 15px 300px 15px 300px;
+  /* margin: 50px 150px 50px 150px; */
   /*top, right, bottom, left*/
   line-height: 1.1;
 }
@@ -69,7 +73,7 @@
   background: linear-gradient(to right, green, gray, green);
   color: black;
   padding: 20px 20px 20px 20px;
-  margin: 15px 300px 15px 300px;
+  /* margin: 15px 300px 15px 300px; */
   /*top, right, bottom, left*/
   line-height: 1.1;
 }
@@ -86,6 +90,7 @@
 .EachPost {
   border: 3px solid purple;
   background: white;
+  text-align: left;
   margin: 5px 15px 50px 15px;
   /*top right bottom left*/
 }
