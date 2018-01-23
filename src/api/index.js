@@ -4,7 +4,6 @@
 // for hosted heroku api:
 const baseUrl = 'https://blog-post-comments-api.herokuapp.com'
 
-
 export function getPosts() {
   return fetch(`${baseUrl}/posts`, {
     headers: {
