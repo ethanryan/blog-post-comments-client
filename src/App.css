@@ -75,7 +75,7 @@
 .EditCommentForm {
   /*border: 2px solid red;*/
   border-radius: 25px;
-  background: linear-gradient(to right, green, gray, green);
+  background: linear-gradient(to right, green, orange, green);
   color: black;
   padding: 20px 20px 20px 20px;
   /* margin: 15px 300px 15px 300px; */
