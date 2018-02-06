@@ -19,12 +19,14 @@ class BlogPostCommentsContainer extends Component {
       comments: [
         {
           username: 'username_here',
-          content: 'content_here'
+          content: 'content_here',
+          showEditForm: false,
         }
       ],
-      showEditForm: false,
+      // showEditForm: false,
     }
   }
+
 
   componentDidMount() {
     api.getPosts()
@@ -33,8 +35,15 @@ class BlogPostCommentsContainer extends Component {
     }) )
     api.getComments()
     .then( data => this.setState({
-      comments: data
+      comments: data,
     }) )
+    // if (this.state.comments.length > 0) {
+  //   this.setState( ({comments}) => ({comments: {
+  //     ...comments,
+  //     showEditForm: false,
+  //   }})
+  // )
+  // }
   }
 
   handleSubmitPost(username, content) {
@@ -67,7 +76,7 @@ class BlogPostCommentsContainer extends Component {
   updateComments(comment) {
     var comments = this.state.comments.filter((eachComment) => { return eachComment.id !== comment.id })
     //filtering all comments, excluding unedited comment...
-    comments.push(comment) //pushing editing comment into all coments...
+    comments.push(comment) //pushing edited comment into all comments...
     this.setState({
       comments: comments
     })
@@ -84,10 +93,43 @@ class BlogPostCommentsContainer extends Component {
     }
   }
 
-  handleToggleEditForm = () => {
-   this.setState((prevState, props) => ({
-       showEditForm: !prevState.showEditForm
-   }))
+ //  handleToggleEditForm = () => {
+ //   this.setState((prevState, props) => ({
+ //       showEditForm: !prevState.showEditForm
+ //   }))
+ // };
+
+  handleToggleEditForm = (commentObject) => {
+  // var comments = {...this.state.comments}
+  // comments.showEditForm =
+
+   // this.setState((prevState, props) => ({
+   //     showEditForm: !prevState.showEditForm
+   // }))
+
+  //  this.setState( ({comments}) => ({comments: {
+  //     ...comments,
+  //     showEditForm: true,
+  //   }})
+  // )
+
+  // this.setState({
+  //   comments: [
+  //     {
+  //       username: commentObject.username,
+  //       content: commentObject.content,
+  //       showEditForm: true,
+  //     }
+  //   ]
+  // })
+
+  // this.setState({
+  //   comments: [
+  //     Object.assign({}, this.state.comments, {
+  //     showEditForm: true,
+  //   }),
+  // ]
+  // });
  };
 
 
