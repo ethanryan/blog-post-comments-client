@@ -2,6 +2,7 @@ import React from 'react'
 
 import CreateCommentForm from '../components/CreateCommentForm'
 import EditCommentForm from '../components/EditCommentForm'
+import AllComments from '../components/AllComments'
 
 import { Card, Button, Icon, Modal } from 'semantic-ui-react'
 
@@ -91,80 +92,30 @@ const EachPost = (props) => {
         }) : "postObject.created_at here"}</p>
 
         <p>
-          <a>
             <Icon name='user' />
             <span>
               Total comments: {allOfTheComments.length > 1 ? allOfTheComments.filter(comment => comment.post_id === postObject.id).length : "total comments here"}
             </span>
-          </a>
         </p>
 
-        {allOfTheComments.length > 1 ? allOfTheComments.filter(comment => comment.post_id === postObject.id).map( (commentObject) =>
-          <div key={commentObject.id ? commentObject.id : "commentObject.id here"} className="EachComment">
-            {/* <p>{commentObject.showEditForm ? commentObject.showEditForm : "commentObject.showEditForm here"}</p> */}
-            <p>{commentObject.username ? commentObject.username : "commentObject.name here"}</p>
-            <h2>{commentObject.content ? commentObject.content : "commentObject.content here"}</h2>
-            <p>Comment originally posted on: {commentObject.created_at ? new Date(commentObject.created_at).toLocaleString('en-US', {
-              weekday: 'short',
-              month: 'short',
-              day: 'numeric',
-              year: 'numeric',
-              hour: 'numeric',
-              minute: 'numeric',
-              hour12: true,
-              timeZoneName: 'short'
-            }) : "commentObject.created_at here"}</p>
-            <p>Updated by {commentObject.username ? commentObject.username : "commentObject.name here"} on: {commentObject.updated_at ? new Date(commentObject.updated_at).toLocaleString('en-US', {
-              weekday: 'short',
-              month: 'short',
-              day: 'numeric',
-              year: 'numeric',
-              hour: 'numeric',
-              minute: 'numeric',
-              hour12: true,
-              timeZoneName: 'short'
-            }) : "commentObject.updated_at here"}</p>
+      </Card.Content>
 
 
-            <Card.Content extra>
-              <div className='ui two buttons'>
 
-                <Button
-                  basic
-                  color='green'
-                  // onClick={props.handleToggleEditForm}
-                  onClick={props.handleToggleEditForm(commentObject)}
-                  >Edit</Button>
+      <Card.Content>
+            <AllComments
+              comments={props.comments}
+              posts={props.posts}
+              postObject={postObject}
+              handleToggleEditForm={props.handleToggleEditForm}
+            />
+      </Card.Content>
 
-                  <Button
-                    basic
-                    color='red'
-                    onClick={() => {props.handleDeleteComment(commentObject.id)}}
-                    >Delete</Button>
 
-                  </div>
-                </Card.Content>
-
-                {/* {props.showEditForm === true ? */}
-                {commentObject.showEditForm === true ?
-                  <EditCommentForm
-                    handleSubmit={props.handleUpdateComment}
-                    postId={postObject.id}
-                    username={commentObject.username}
-                    content={commentObject.content}
-                    id={commentObject.id}
-                  // /> : ""}
-                  /> : "commentObject.showEditForm === false!!!"}
-
-                </div>
-              ) : "allOfTheComments here..."}
-
-              <CreateCommentForm
-                handleSubmit={props.handleSubmit}
-                postId={postObject.id}
-              />
-
-            </Card.Content>
+            <CreateCommentForm
+              handleSubmit={props.handleSubmit}
+              postId={postObject.id}
+            />
 
           </Card>
         </Modal>
@@ -176,7 +127,7 @@ const EachPost = (props) => {
 
     return(
       <div className="EachPost">
-        
+
         <h1 className="center">EachPost listed below</h1>
 
         <div>{ eachPost.reverse() }</div>
