@@ -7,25 +7,25 @@ const AllPosts = (props) => {
   const allOfThePosts = props.posts //an array
   // const allOfTheComments = props.comments //an array
 
-    return(
-      <div className="AllPosts">
-        <h3>Total posts in database: {allOfThePosts.length}</h3>
+  return(
+    <div className="AllPosts">
+      <h3>Total posts in database: {allOfThePosts.length}</h3>
 
-        <EachPost
-          //props for EachPost
-          posts={props.posts}
-          comments={props.comments}
-          handleUpdateComment={props.handleUpdateComment}
-          handleDeleteComment={props.handleDeleteComment}
-          handleToggleEditForm={props.handleToggleEditForm}
-          showEditForm={props.showEditForm}
+      <EachPost
+        //props for EachPost
+        posts={props.posts}
+        comments={props.comments}
+        handleUpdateComment={props.handleUpdateComment}
+        handleDeleteComment={props.handleDeleteComment}
+        handleToggleEditForm={props.handleToggleEditForm}
+        showEditForm={props.showEditForm}
+        
+        //props for CreateCommentForm
+        handleSubmit={props.handleSubmit}
+      />
 
-          //props for CreateCommentForm
-          handleSubmit={props.handleSubmitComment}
-        />
+    </div>
+  )
+}
 
-      </div>
-    )
-  }
-
-  export default AllPosts
+export default AllPosts

@@ -23,7 +23,7 @@ class BlogPostCommentsContainer extends Component {
           showEditForm: false,
         }
       ],
-      // showEditForm: false,
+      showEditForm: false, //need to move this to each comment object, above...
     }
   }
 
@@ -37,13 +37,6 @@ class BlogPostCommentsContainer extends Component {
     .then( data => this.setState({
       comments: data,
     }) )
-    // if (this.state.comments.length > 0) {
-  //   this.setState( ({comments}) => ({comments: {
-  //     ...comments,
-  //     showEditForm: false,
-  //   }})
-  // )
-  // }
   }
 
   handleSubmitPost(username, content) {
@@ -78,7 +71,8 @@ class BlogPostCommentsContainer extends Component {
     //filtering all comments, excluding unedited comment...
     comments.push(comment) //pushing edited comment into all comments...
     this.setState({
-      comments: comments
+      comments: comments,
+      showEditForm: false //to close edit form after submitting...
     })
   }
 
@@ -99,13 +93,13 @@ class BlogPostCommentsContainer extends Component {
  //   }))
  // };
 
-  handleToggleEditForm = (commentObject) => {
+  handleToggleEditForm = () => {
   // var comments = {...this.state.comments}
   // comments.showEditForm =
 
-   // this.setState((prevState, props) => ({
-   //     showEditForm: !prevState.showEditForm
-   // }))
+   this.setState((prevState, props) => ({
+       showEditForm: !prevState.showEditForm
+   }))
 
   //  this.setState( ({comments}) => ({comments: {
   //     ...comments,

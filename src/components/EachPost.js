@@ -1,10 +1,9 @@
 import React from 'react'
 
 import CreateCommentForm from '../components/CreateCommentForm'
-import EditCommentForm from '../components/EditCommentForm'
 import AllComments from '../components/AllComments'
 
-import { Card, Button, Icon, Modal } from 'semantic-ui-react'
+import { Card, Icon, Modal } from 'semantic-ui-react'
 
 const EachPost = (props) => {
 
@@ -92,10 +91,10 @@ const EachPost = (props) => {
         }) : "postObject.created_at here"}</p>
 
         <p>
-            <Icon name='user' />
-            <span>
-              Total comments: {allOfTheComments.length > 1 ? allOfTheComments.filter(comment => comment.post_id === postObject.id).length : "total comments here"}
-            </span>
+          <Icon name='user' />
+          <span>
+            Total comments: {allOfTheComments.length > 1 ? allOfTheComments.filter(comment => comment.post_id === postObject.id).length : "total comments here"}
+          </span>
         </p>
 
       </Card.Content>
@@ -103,37 +102,37 @@ const EachPost = (props) => {
 
 
       <Card.Content>
-            <AllComments
-              comments={props.comments}
-              posts={props.posts}
-              postObject={postObject}
-              handleToggleEditForm={props.handleToggleEditForm}
-            />
+        <AllComments
+          comments={props.comments}
+          posts={props.posts}
+          postObject={postObject}
+          handleUpdateComment={props.handleUpdateComment}
+          handleDeleteComment={props.handleDeleteComment}
+          handleToggleEditForm={props.handleToggleEditForm}
+          showEditForm={props.showEditForm}
+        />
       </Card.Content>
 
 
-            <CreateCommentForm
-              handleSubmit={props.handleSubmit}
-              postId={postObject.id}
-            />
+      <CreateCommentForm
+        handleSubmit={props.handleSubmit}
+        postId={postObject.id}
+      />
 
-          </Card>
-        </Modal>
-      </div>
-    )
+    </Card>
+  </Modal>
+</div>
+)
 
-    console.log('EachPost props: ', props)
-    // console.log('eachPost: ', eachPost)
+console.log('EachPost props: ', props)
+// console.log('eachPost: ', eachPost)
 
-    return(
-      <div className="EachPost">
+return(
+  <div>
+    <h1 className="center">EachPost listed below</h1>
+    <div>{ eachPost.reverse() }</div>
+  </div>
+)
+}
 
-        <h1 className="center">EachPost listed below</h1>
-
-        <div>{ eachPost.reverse() }</div>
-      </div>
-    )
-  }
-
-
-  export default EachPost
+export default EachPost
