@@ -3,12 +3,14 @@ import React from 'react'
 import CreateCommentForm from '../components/CreateCommentForm'
 import AllComments from '../components/AllComments'
 
-import { Card, Icon, Modal } from 'semantic-ui-react'
+import { Card, Icon, Modal, Dimmer, Loader } from 'semantic-ui-react'
 
 const EachPost = (props) => {
 
   const allOfThePosts = props.posts //an array
   const allOfTheComments = props.comments //an array
+
+  var Parser = require('html-react-parser')
 
   const eachPost = allOfThePosts.map( (postObject) =>
 
@@ -20,7 +22,10 @@ const EachPost = (props) => {
         <Card.Content>
 
           <Card.Header>
-            <p>{postObject.username ? postObject.username : "postObject.name here"}</p>
+            <p>{postObject.username ? postObject.username :
+              <Dimmer active>
+                <Loader />
+              </Dimmer>}</p>
           </Card.Header>
 
           <Card.Meta>
@@ -28,7 +33,7 @@ const EachPost = (props) => {
           </Card.Meta>
 
           <Card.Description>
-            <h2>{postObject.content ? postObject.content : "postObject.content here"}</h2>
+            <p className="biggerText">{postObject.content ? Parser(postObject.content) : "postObject.content here"}</p>
           </Card.Description>
 
         </Card.Content>

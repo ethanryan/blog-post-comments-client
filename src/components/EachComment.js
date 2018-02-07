@@ -9,10 +9,12 @@ const EachComment = (props) => {
   const allOfTheComments = props.comments //an array
   const postObject = props.postObject
 
+  var Parser = require('html-react-parser')
+  
   const eachComment = allOfTheComments.filter(comment => comment.post_id === postObject.id).map( (commentObject) =>
 
   <div key={commentObject.id ? commentObject.id : "commentObject.id here"} className="EachComment">
-    
+
     {commentObject.editable === true ?
       <EditCommentForm
         handleSubmit={props.handleUpdateComment}
@@ -27,7 +29,7 @@ const EachComment = (props) => {
       <div>
       <div className="EachCommentContent">
         <p>{commentObject.username ? commentObject.username : "commentObject.name here"}</p>
-        <h2>{commentObject.content ? commentObject.content : "commentObject.content here"}</h2>
+        <p className="biggerText">{commentObject.content ? Parser(commentObject.content) : "commentObject.content here"}</p>
         <p>Comment originally posted on: {commentObject.created_at ? new Date(commentObject.created_at).toLocaleString('en-US', {
           weekday: 'short',
           month: 'short',

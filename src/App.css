@@ -10,6 +10,10 @@
   background: linear-gradient(141deg, #0fb8ad 0%, #1FC8D2 51%, #2cb5e8 75%);
 }
 
+.biggerText {
+  font-size: 24px;
+}
+
 /*.App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
