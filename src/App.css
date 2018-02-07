@@ -1,6 +1,5 @@
 .whiteSpace {
-  white-space: pre;
-  /* white-space: pre-wrap; */
+  white-space: pre-wrap;
 }
 
 .App {
