@@ -23,7 +23,6 @@ class BlogPostCommentsContainer extends Component {
           showEditForm: false,
         }
       ],
-      showEditForm: false, //need to move this to each comment object, above...
     }
   }
 
@@ -34,6 +33,7 @@ class BlogPostCommentsContainer extends Component {
       posts: data
     }) )
     api.getComments()
+    .then ( data => this.sortCommentsById(data) ) //sorting comments by ID...
     .then( data => this.setState({
       comments: data,
     }) )
@@ -41,90 +41,71 @@ class BlogPostCommentsContainer extends Component {
 
   handleSubmitPost(username, content) {
     api.createPost(username, content)
-      .then( post => this.setState(
-        prevState => ({
-          posts: [...prevState.posts, post]
-        })
-      )
+    .then( post => this.setState(
+      prevState => ({
+        posts: [...prevState.posts, post]
+      })
     )
-  }
+  )
+}
 
-  handleSubmitComment(username, content) {
-    api.createComment(username, content)
-      .then( comment => this.setState(
-        prevState => ({
-          comments: [...prevState.comments, comment]
-        })
-      )
-    )
-  }
-
-  handleUpdateComment(updatedComment) {
-    api.updateComment(updatedComment)
-    .then( comment =>
-      this.updateComments(comment) //calling function below
-    )
-  }
-
-  updateComments(comment) {
-    var comments = this.state.comments.filter((eachComment) => { return eachComment.id !== comment.id })
-    //filtering all comments, excluding unedited comment...
-    comments.push(comment) //pushing edited comment into all comments...
-    this.setState({
-      comments: comments,
-      showEditForm: false //to close edit form after submitting...
+handleSubmitComment(username, content) {
+  api.createComment(username, content)
+  .then( comment => this.setState(
+    prevState => ({
+      comments: [...prevState.comments, comment]
     })
-  }
+  )
+)
+}
 
-  handleDeleteComment(id) {
+handleUpdateComment(updatedComment) {
+  api.updateComment(updatedComment)
+  .then( comment =>
+    this.updateComments(comment) //calling function below
+  )
+}
+
+updateComments(comment) {
+  var comments = this.state.comments.filter((eachComment) => { return eachComment.id !== comment.id })
+  //filtering all comments, excluding unedited comment...
+  comments.push(comment) //pushing edited comment into all comments...
+  this.sortCommentsById(comments) //sort comments by Id...
+  this.setState({
+    comments: comments,
+  })
+}
+
+handleDeleteComment(id) {
   if (window.confirm("Are you sure you want to delete this comment? 😱😱😱 ")) {
     api.deleteComment(id)
-      .then( () => {
-        this.setState( prevState => ({
-          comments: prevState.comments.filter( comment => comment.id !== id )
-        }) )
-      })
-    }
+    .then( () => {
+      this.setState( prevState => ({
+        comments: prevState.comments.filter( comment => comment.id !== id )
+      }) )
+    })
   }
+}
 
- //  handleToggleEditForm = () => {
- //   this.setState((prevState, props) => ({
- //       showEditForm: !prevState.showEditForm
- //   }))
- // };
 
-  handleToggleEditForm = () => {
-  // var comments = {...this.state.comments}
-  // comments.showEditForm =
+sortCommentsById(commentsArray) {
+  commentsArray.sort(function(first, second) {
+    return first.id - second.id; //sort comments by updated_at, first to last
+  });
+  return commentsArray
+}
 
-   this.setState((prevState, props) => ({
-       showEditForm: !prevState.showEditForm
-   }))
 
-  //  this.setState( ({comments}) => ({comments: {
-  //     ...comments,
-  //     showEditForm: true,
-  //   }})
-  // )
-
-  // this.setState({
-  //   comments: [
-  //     {
-  //       username: commentObject.username,
-  //       content: commentObject.content,
-  //       showEditForm: true,
-  //     }
-  //   ]
-  // })
-
-  // this.setState({
-  //   comments: [
-  //     Object.assign({}, this.state.comments, {
-  //     showEditForm: true,
-  //   }),
-  // ]
-  // });
- };
+handleToggleEditForm(comment) {
+  var comments = this.state.comments.filter((eachComment) => { return eachComment.id !== comment.id })
+  //filtering all comments, excluding toggled comment...
+  var editableComment = Object.assign({}, comment, {editable: true}); //make toggled comment editable...
+  comments.push(editableComment) //pushing editableComment comment into all comments...
+  this.sortCommentsById(comments) //sort comments by Id...
+  this.setState({
+    comments: comments,
+  })
+};
 
 
 render() {
@@ -144,6 +125,7 @@ render() {
         comments={this.state.comments}
         handleUpdateComment={this.handleUpdateComment.bind(this)}
         handleDeleteComment={this.handleDeleteComment.bind(this)}
+        // handleToggleEditForm={this.handleToggleEditForm.bind(this)}
         handleToggleEditForm={this.handleToggleEditForm.bind(this)}
         showEditForm={this.state.showEditForm}
 

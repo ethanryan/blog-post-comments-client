@@ -11,6 +11,8 @@ const EachComment = (props) => {
 
   const eachComment = allOfTheComments.filter(comment => comment.post_id === postObject.id).map( (commentObject) =>
   <div key={commentObject.id ? commentObject.id : "commentObject.id here"} className="EachComment">
+
+    <p>{commentObject.id ? commentObject.id : "commentObject.id here"}</p>
     <p>{commentObject.username ? commentObject.username : "commentObject.name here"}</p>
     <h2>{commentObject.content ? commentObject.content : "commentObject.content here"}</h2>
     <p>Comment originally posted on: {commentObject.created_at ? new Date(commentObject.created_at).toLocaleString('en-US', {
@@ -40,39 +42,36 @@ const EachComment = (props) => {
         <Button
           basic
           color='green'
-          onClick={props.handleToggleEditForm}
-          // onClick={props.handleToggleEditForm(commentObject)}
+          onClick={() => props.handleToggleEditForm(commentObject)}
           >Edit</Button>
 
-          <Button
-            basic
-            color='red'
-            onClick={() => {props.handleDeleteComment(commentObject.id)}}
-            >Delete</Button>
-
-          </div>
-        </Card.Content>
-
-        {/* {commentObject.showEditForm === true ? */}
-        {props.showEditForm === true ?
-          <EditCommentForm
-            handleSubmit={props.handleUpdateComment}
-            postId={postObject.id}
-            username={commentObject.username}
-            content={commentObject.content}
-            id={commentObject.id}
-            // /> : ""}
-          /> : "commentObject.showEditForm === false!!!"}
+        <Button
+          basic
+          color='red'
+          onClick={() => {props.handleDeleteComment(commentObject.id)}}
+          >Delete</Button>
 
         </div>
-      )
+      </Card.Content>
 
-      // console.log('EachComment props: ', props)
-      return(
-        <div>
-          {eachComment}
-        </div>
-      )
-    }
+      {commentObject.editable === true ?
+        <EditCommentForm
+          handleSubmit={props.handleUpdateComment}
+          postId={postObject.id}
+          username={commentObject.username}
+          content={commentObject.content}
+          id={commentObject.id}
+          // /> : ""}
+        /> : "showEditForm here..."}
+      </div>
+    )
 
-    export default EachComment
+    // console.log('EachComment props: ', props)
+    return(
+      <div>
+        {eachComment}
+      </div>
+    )
+  }
+
+  export default EachComment

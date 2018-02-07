@@ -1,8 +1,8 @@
 // for local server rails api:
-//const baseUrl = 'http://localhost:3000'
+const baseUrl = 'http://localhost:3000'
 
 // for hosted heroku api:
-const baseUrl = 'https://blog-post-comments-api.herokuapp.com'
+//const baseUrl = 'https://blog-post-comments-api.herokuapp.com'
 
 export function getPosts() {
   return fetch(`${baseUrl}/posts`, {

@@ -9,7 +9,7 @@ const AllComments = (props) => {
   return(
     <div>
 
-      {allOfTheComments.length > 1 ?
+      {allOfTheComments.length > 0 ?
         <EachComment
           comments={props.comments}
           posts={props.posts}

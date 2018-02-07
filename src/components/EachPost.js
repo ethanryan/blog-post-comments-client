@@ -10,8 +10,6 @@ const EachPost = (props) => {
   const allOfThePosts = props.posts //an array
   const allOfTheComments = props.comments //an array
 
-  // const eachPost = allOfThePosts.map( (postObject) =>
-
   const eachPost = allOfThePosts.map( (postObject) =>
 
   <div key={postObject.id ? postObject.id : "postObject.id here"} className="EachPost">
@@ -124,7 +122,7 @@ const EachPost = (props) => {
 </div>
 )
 
-console.log('EachPost props: ', props)
+// console.log('EachPost props: ', props)
 // console.log('eachPost: ', eachPost)
 
 return(

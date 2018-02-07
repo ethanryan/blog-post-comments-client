@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { Form, Grid, Segment } from 'semantic-ui-react'
 
 class EditCommentForm extends Component {
-
+  
   constructor(props) {
     super(props)
     this.state=({
@@ -11,7 +11,7 @@ class EditCommentForm extends Component {
       content: props.content,
       post_id: props.postId,
       id: props.id,
-      valid: true
+      valid: true,
     })
     this.handleUsernameChange = this.handleUsernameChange.bind(this)
     this.handleContentChange = this.handleContentChange.bind(this)
@@ -94,7 +94,6 @@ class EditCommentForm extends Component {
                 <Form.Field
                   label="Username"
                   placeholder="username here"
-                  autoFocus
                   control="input"
                   type="text"
                   value={this.state.username}
@@ -107,6 +106,7 @@ class EditCommentForm extends Component {
                 <Form.TextArea
                   label="Content"
                   placeholder="content here"
+                  autoFocus
                   control="textarea"
                   type="text"
                   value={this.state.content}
