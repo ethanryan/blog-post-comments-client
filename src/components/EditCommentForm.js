@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { Form, Grid, Segment } from 'semantic-ui-react'
 
 class EditCommentForm extends Component {
-  
+
   constructor(props) {
     super(props)
     this.state=({
@@ -79,16 +79,18 @@ class EditCommentForm extends Component {
 
       <div className="EditCommentForm">
 
-        <h1 className="center">Edit Comment Here</h1>
+        {/* <h1 className="center">Edit Comment Here</h1> */}
 
-        <Grid centered columns={2}>
-          <Grid.Row centered textAlign='center'>
+        {/* <Grid centered columns={2}> */}
+        <Grid>
+          {/* <Grid.Row centered textAlign='center'> */}
+          <Grid.Row>
             <Grid.Column>
 
               <Form onSubmit={this.handleSubmit}>
 
-                <p className="center">Comment ID: {this.state.id}</p>
-                <p className="center">Comment on Post #{this.state.post_id}</p>
+                {/* <p className="center">Comment ID: {this.state.id}</p> */}
+                {/* <p className="center">Comment on Post #{this.state.post_id}</p> */}
 
                 <div className={fieldContainerClass}>
                 <Form.Field
