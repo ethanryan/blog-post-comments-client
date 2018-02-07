@@ -13,7 +13,7 @@ class App extends Component {
         <header className="App-header">
           <h1>Welcome to BlogPostComments</h1>
           <h2>
-            The only place on the interet where anybody can say whatever they want about anything, and anyone else can leave a comment!
+            The only place on the internet where anybody can say whatever they want about anything, and anyone else can leave a comment!
           </h2>
         </header>
 
