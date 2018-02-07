@@ -1,10 +1,12 @@
 .whiteSpace {
-  white-space: pre-wrap;
+  white-space: pre;
+  /* white-space: pre-wrap; */
 }
 
 .App {
   text-align: center;
   white-space: pre-wrap;
+  /* white-space: pre; */
   background: linear-gradient(141deg, #0fb8ad 0%, #1FC8D2 51%, #2cb5e8 75%);
 }
 
