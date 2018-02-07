@@ -75,7 +75,7 @@ const EachPost = (props) => {
         </Card.Meta>
 
         <Card.Description>
-          <h2>{postObject.content ? postObject.content : "postObject.content here"}</h2>
+          <p className="biggerText">{postObject.content ? Parser(postObject.content) : "postObject.content here"}</p>
         </Card.Description>
 
       </Card.Content>
