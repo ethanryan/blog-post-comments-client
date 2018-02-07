@@ -3,7 +3,7 @@ import React from 'react'
 import CreateCommentForm from '../components/CreateCommentForm'
 import AllComments from '../components/AllComments'
 
-import { Card, Icon, Modal } from 'semantic-ui-react'
+import { Card, Icon, Modal, Dimmer, Loader } from 'semantic-ui-react'
 
 const EachPost = (props) => {
 
@@ -20,7 +20,10 @@ const EachPost = (props) => {
         <Card.Content>
 
           <Card.Header>
-            <p>{postObject.username ? postObject.username : "postObject.name here"}</p>
+            <p>{postObject.username ? postObject.username :
+              <Dimmer active>
+                <Loader />
+              </Dimmer>}</p>
           </Card.Header>
 
           <Card.Meta>
