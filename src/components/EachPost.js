@@ -10,6 +10,8 @@ const EachPost = (props) => {
   const allOfThePosts = props.posts //an array
   const allOfTheComments = props.comments //an array
 
+  var Parser = require('html-react-parser')
+
   const eachPost = allOfThePosts.map( (postObject) =>
 
   <div key={postObject.id ? postObject.id : "postObject.id here"} className="EachPost">
@@ -31,7 +33,7 @@ const EachPost = (props) => {
           </Card.Meta>
 
           <Card.Description>
-            <h2>{postObject.content ? postObject.content : "postObject.content here"}</h2>
+            <p className="biggerText">{postObject.content ? Parser(postObject.content) : "postObject.content here"}</p>
           </Card.Description>
 
         </Card.Content>
