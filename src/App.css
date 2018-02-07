@@ -74,15 +74,24 @@
   /* line-height: 1.1; */
 }
 
-.EditCommentForm {
-  /*border: 2px solid red;*/
-  border-radius: 25px;
-  background: linear-gradient(to right, green, orange, green);
-  color: black;
-  padding: 20px 20px 20px 20px;
+/* .EditCommentForm {
+  /* border-radius: 25px; */
+  /* background: linear-gradient(to right, green, orange, green); */
+  /* color: black; */
+  /* padding: 20px 20px 20px 20px; */
   /* margin: 15px 300px 15px 300px; */
   /*top, right, bottom, left*/
-  line-height: 1.1;
+  /* line-height: 1.1; */
+/* } */
+
+.EditCommentForm {
+  /* background: white; */
+  /* white-space: pre-wrap; */
+  /* margin: 5px 15px 50px 15px; */
+  /*top right bottom left*/
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .AllPosts {
@@ -104,11 +113,17 @@
 }
 
 .EachComment {
-  border: 3px solid orange;
+  /* border: 1px solid orange; */
   background: white;
   white-space: pre-wrap;
-  margin: 5px 15px 50px 15px;
-  /*top right bottom left*/
+}
+
+.EachCommentContent {
+  background: #F8F8F8;
+  padding-top: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 10px;
 }
 
 .red {

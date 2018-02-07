@@ -98,19 +98,15 @@ const EachPost = (props) => {
       </Card.Content>
 
 
-
-      <Card.Content>
-        <AllComments
-          comments={props.comments}
-          posts={props.posts}
-          postObject={postObject}
-          handleUpdateComment={props.handleUpdateComment}
-          handleDeleteComment={props.handleDeleteComment}
-          handleToggleEditForm={props.handleToggleEditForm}
-          showEditForm={props.showEditForm}
-        />
-      </Card.Content>
-
+      <AllComments
+        comments={props.comments}
+        posts={props.posts}
+        postObject={postObject}
+        handleUpdateComment={props.handleUpdateComment}
+        handleDeleteComment={props.handleDeleteComment}
+        handleToggleEditForm={props.handleToggleEditForm}
+        showEditForm={props.showEditForm}
+      />
 
       <CreateCommentForm
         handleSubmit={props.handleSubmit}

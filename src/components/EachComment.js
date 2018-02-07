@@ -10,64 +10,69 @@ const EachComment = (props) => {
   const postObject = props.postObject
 
   const eachComment = allOfTheComments.filter(comment => comment.post_id === postObject.id).map( (commentObject) =>
+
   <div key={commentObject.id ? commentObject.id : "commentObject.id here"} className="EachComment">
+    
+    {commentObject.editable === true ?
+      <EditCommentForm
+        handleSubmit={props.handleUpdateComment}
+        postId={postObject.id}
+        username={commentObject.username}
+        content={commentObject.content}
+        id={commentObject.id}
+      />
 
-    <p>{commentObject.id ? commentObject.id : "commentObject.id here"}</p>
-    <p>{commentObject.username ? commentObject.username : "commentObject.name here"}</p>
-    <h2>{commentObject.content ? commentObject.content : "commentObject.content here"}</h2>
-    <p>Comment originally posted on: {commentObject.created_at ? new Date(commentObject.created_at).toLocaleString('en-US', {
-      weekday: 'short',
-      month: 'short',
-      day: 'numeric',
-      year: 'numeric',
-      hour: 'numeric',
-      minute: 'numeric',
-      hour12: true,
-      timeZoneName: 'short'
-    }) : "commentObject.created_at here"}</p>
-    <p>Updated by {commentObject.username ? commentObject.username : "commentObject.name here"} on: {commentObject.updated_at ? new Date(commentObject.updated_at).toLocaleString('en-US', {
-      weekday: 'short',
-      month: 'short',
-      day: 'numeric',
-      year: 'numeric',
-      hour: 'numeric',
-      minute: 'numeric',
-      hour12: true,
-      timeZoneName: 'short'
-    }) : "commentObject.updated_at here"}</p>
+      :
 
-    <Card.Content extra>
-      <div className='ui two buttons'>
-
-        <Button
-          basic
-          color='green'
-          onClick={() => props.handleToggleEditForm(commentObject)}
-          >Edit</Button>
-
-        <Button
-          basic
-          color='red'
-          onClick={() => {props.handleDeleteComment(commentObject.id)}}
-          >Delete</Button>
-
-        </div>
-      </Card.Content>
-
-      {commentObject.editable === true ?
-        <EditCommentForm
-          handleSubmit={props.handleUpdateComment}
-          postId={postObject.id}
-          username={commentObject.username}
-          content={commentObject.content}
-          id={commentObject.id}
-          // /> : ""}
-        /> : "showEditForm here..."}
+      <div>
+      <div className="EachCommentContent">
+        <p>{commentObject.username ? commentObject.username : "commentObject.name here"}</p>
+        <h2>{commentObject.content ? commentObject.content : "commentObject.content here"}</h2>
+        <p>Comment originally posted on: {commentObject.created_at ? new Date(commentObject.created_at).toLocaleString('en-US', {
+          weekday: 'short',
+          month: 'short',
+          day: 'numeric',
+          year: 'numeric',
+          hour: 'numeric',
+          minute: 'numeric',
+          hour12: true,
+          timeZoneName: 'short'
+        }) : "commentObject.created_at here"}</p>
+        <p>Updated by {commentObject.username ? commentObject.username : "commentObject.name here"} on: {commentObject.updated_at ? new Date(commentObject.updated_at).toLocaleString('en-US', {
+          weekday: 'short',
+          month: 'short',
+          day: 'numeric',
+          year: 'numeric',
+          hour: 'numeric',
+          minute: 'numeric',
+          hour12: true,
+          timeZoneName: 'short'
+        }) : "commentObject.updated_at here"}</p>
       </div>
-    )
 
-    // console.log('EachComment props: ', props)
-    return(
+        <Card.Content extra>
+          <div className='ui two buttons'>
+
+            <Button
+              basic
+              color='green'
+              onClick={() => props.handleToggleEditForm(commentObject)}
+              >Edit</Button>
+
+            <Button
+              basic
+              color='red'
+              onClick={() => {props.handleDeleteComment(commentObject.id)}}
+              >Delete</Button>
+            </div>
+
+        </Card.Content>
+      </div>
+    }
+  </div>
+  )
+
+    return (
       <div>
         {eachComment}
       </div>
