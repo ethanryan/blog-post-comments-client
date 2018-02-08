@@ -12,7 +12,7 @@ class BlogPostCommentsContainer extends Component {
     this.state = {
       posts: [
         {
-          username: 'username_here',
+          username: '',
           content: 'content_here'
         }
       ],
