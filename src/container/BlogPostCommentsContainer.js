@@ -6,6 +6,8 @@ import CreatePostForm from '../components/CreatePostForm'
 
 import AllPosts from '../components/AllPosts'
 
+//redux 
+
 class BlogPostCommentsContainer extends Component {
   constructor(props) {
     super(props)
