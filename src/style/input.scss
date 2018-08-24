@@ -1,5 +1,10 @@
 $primary-color: red;
+$secondary-color: blue;
 
 body {
   color: $primary-color;
+}
+
+.blue {
+  color: $secondary-color;
 }
