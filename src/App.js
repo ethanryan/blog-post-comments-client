@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import './App.css'
+import './style/App.css'
 import 'semantic-ui-css/semantic.min.css' //for semantic-ui-css
 
 import BlogPostCommentsContainer from './container/BlogPostCommentsContainer'
