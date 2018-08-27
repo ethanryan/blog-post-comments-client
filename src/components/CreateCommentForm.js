@@ -9,7 +9,7 @@ class CreateCommentForm extends Component {
     this.state=({
       username: '',
       content: '',
-      post_id: props.postId,
+      post_id: props.postId, //NOTE: ok to set state from props like this? -- ER August 2018
       valid: true
     })
     this.handleUsernameChange = this.handleUsernameChange.bind(this)
@@ -103,7 +103,7 @@ class CreateCommentForm extends Component {
                 />
                 <span>must have username!</span>
                 </div>
-                
+
                 <div className={fieldContainerClass}>
                 <Form.TextArea
                   label="Content"
