@@ -6,7 +6,7 @@ import CreatePostForm from '../components/CreatePostForm'
 
 import AllPosts from '../components/AllPosts'
 
-//redux 
+//redux
 
 class BlogPostCommentsContainer extends Component {
   constructor(props) {
@@ -26,6 +26,11 @@ class BlogPostCommentsContainer extends Component {
         }
       ],
     }
+    this.handleSubmitPost = this.handleSubmitPost.bind(this);
+    this.handleUpdateComment = this.handleUpdateComment.bind(this);
+    this.handleDeleteComment = this.handleDeleteComment.bind(this);
+    this.handleToggleEditForm = this.handleToggleEditForm.bind(this);
+    this.handleSubmitComment = this.handleSubmitComment.bind(this);
   }
 
 
@@ -118,21 +123,20 @@ render() {
 
       <CreatePostForm
         //props for CreatePostForm
-        handleSubmit={this.handleSubmitPost.bind(this)}
+        handleSubmit={this.handleSubmitPost}
       />
 
       <AllPosts
         //props for AllPosts
         posts={this.state.posts}
         comments={this.state.comments}
-        handleUpdateComment={this.handleUpdateComment.bind(this)}
-        handleDeleteComment={this.handleDeleteComment.bind(this)}
-        // handleToggleEditForm={this.handleToggleEditForm.bind(this)}
-        handleToggleEditForm={this.handleToggleEditForm.bind(this)}
+        handleUpdateComment={this.handleUpdateComment}
+        handleDeleteComment={this.handleDeleteComment}
+        handleToggleEditForm={this.handleToggleEditForm}
         showEditForm={this.state.showEditForm}
 
         //props for CreateCommentForm
-        handleSubmit={this.handleSubmitComment.bind(this)}
+        handleSubmit={this.handleSubmitComment}
       />
 
     </div>
