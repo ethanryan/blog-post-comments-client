@@ -92,47 +92,47 @@ class CreateCommentForm extends Component {
               <Form onSubmit={this.handleSubmit}>
 
                 <div className={fieldContainerClass}>
-                <Form.Field
-                  label="Username"
-                  placeholder="username here"
-                  autoFocus
-                  control="input"
-                  type="text"
-                  value={this.state.username}
-                  onChange={this.handleUsernameChange}
-                />
-                <span>must have username!</span>
+                  <Form.Field
+                    label="Username"
+                    placeholder="username here"
+                    autoFocus
+                    control="input"
+                    type="text"
+                    value={this.state.username}
+                    onChange={this.handleUsernameChange}
+                  />
+                  <span>must have username!</span>
                 </div>
 
                 <div className={fieldContainerClass}>
-                <Form.TextArea
-                  label="Content"
-                  placeholder="content here"
-                  control="textarea"
-                  type="text"
-                  value={this.state.content}
-                  onChange={this.handleContentChange}
-                />
-                <span>comment must say something!</span>
+                  <Form.TextArea
+                    label="Content"
+                    placeholder="content here"
+                    control="textarea"
+                    type="text"
+                    value={this.state.content}
+                    onChange={this.handleContentChange}
+                  />
+                  <span>comment must say something!</span>
                 </div>
 
-                  <Segment basic textAlign='center'>
-                    <Form.Button
-                      content="Submit"
-                      type="submit"
-                      primary
-                      disabled={isDisabled}
-                    />
-                  </Segment>
+                <Segment basic textAlign='center'>
+                  <Form.Button
+                    content="Submit"
+                    type="submit"
+                    primary
+                    disabled={isDisabled}
+                  />
+                </Segment>
 
-                </Form>
-
-              </Grid.Column>
-            </Grid.Row>
-          </Grid>
-        </div>
-      )
-    }
+              </Form>
+              
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </div>
+    )
   }
+}
 
-  export default CreateCommentForm
+export default CreateCommentForm

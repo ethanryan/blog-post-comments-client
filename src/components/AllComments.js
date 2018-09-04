@@ -5,11 +5,11 @@ import EachComment from '../components/EachComment'
 const AllComments = (props) => {
 
   const allOfTheComments = props.comments //an array
-
+  
   return(
     <div>
-
-      {allOfTheComments.length > 0 ?
+      {
+        allOfTheComments.length > 0 ?
         <EachComment
           comments={props.comments}
           posts={props.posts}
@@ -19,8 +19,8 @@ const AllComments = (props) => {
           handleToggleEditForm={props.handleToggleEditForm}
           showEditForm={props.showEditForm}
         />
-        : "allOfTheComments here..."}
-
+        : "allOfTheComments here..."
+      }
     </div>
   )
 }
