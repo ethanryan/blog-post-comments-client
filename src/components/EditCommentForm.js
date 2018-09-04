@@ -88,52 +88,48 @@ class EditCommentForm extends Component {
             <Grid.Column>
 
               <Form onSubmit={this.handleSubmit}>
-
-                {/* <p className="center">Comment ID: {this.state.id}</p> */}
-                {/* <p className="center">Comment on Post #{this.state.post_id}</p> */}
-
                 <div className={fieldContainerClass}>
-                <Form.Field
-                  label="Username"
-                  placeholder="username here"
-                  control="input"
-                  type="text"
-                  value={this.state.username}
-                  onChange={this.handleUsernameChange}
-                />
-                <span>must have username!</span>
+                  <Form.Field
+                    label="Username"
+                    placeholder="username here"
+                    control="input"
+                    type="text"
+                    value={this.state.username}
+                    onChange={this.handleUsernameChange}
+                  />
+                  <span>must have username!</span>
                 </div>
 
                 <div className={fieldContainerClass}>
-                <Form.TextArea
-                  label="Content"
-                  placeholder="content here"
-                  autoFocus
-                  control="textarea"
-                  type="text"
-                  value={this.state.content}
-                  onChange={this.handleContentChange}
-                />
-                <span>comment must say something!</span>
+                  <Form.TextArea
+                    label="Content"
+                    placeholder="content here"
+                    autoFocus
+                    control="textarea"
+                    type="text"
+                    value={this.state.content}
+                    onChange={this.handleContentChange}
+                  />
+                  <span>comment must say something!</span>
                 </div>
 
-                  <Segment basic textAlign='center'>
-                    <Form.Button
-                      content="Submit"
-                      type="submit"
-                      color="green"
-                      disabled={isDisabled}
-                    />
-                  </Segment>
+                <Segment basic textAlign='center'>
+                  <Form.Button
+                    content="Submit"
+                    type="submit"
+                    color="green"
+                    disabled={isDisabled}
+                  />
+                </Segment>
 
-                </Form>
+              </Form>
 
-              </Grid.Column>
-            </Grid.Row>
-          </Grid>
-        </div>
-      )
-    }
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </div>
+    )
   }
+}
 
-  export default EditCommentForm
+export default EditCommentForm
