@@ -22,10 +22,15 @@ const EachPost = (props) => {
         <Card.Content>
 
           <Card.Header>
-            <p>{postObject.username ? postObject.username :
-              <Dimmer active>
-                <Loader />
-              </Dimmer>}</p>
+            <div>
+              {
+                postObject.username ?
+                postObject.username :
+                <Dimmer active>
+                  <Loader />
+                </Dimmer>
+              }
+            </div>
           </Card.Header>
 
           <Card.Meta>
