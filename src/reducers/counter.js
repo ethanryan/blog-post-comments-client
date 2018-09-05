@@ -7,18 +7,16 @@ const initialState = {
 
 // const counter = (state = [], action) => {
 const counter = (state = initialState, action) => {
-  console.log('reducerExample - state is: ', state)
+  // console.log('reducerExample - state is: ', state)
   console.log('reducerExample - action is: ', action)
   switch(action.type) {
     case 'ADD_ONE':
     return {
-      ...state,
-      count: state.count + 1
+      ...state, count: state.count + 1
     }
     case 'SUBTRACT_ONE':
     return {
-      ...state,
-      count: state.count - 1
+      ...state, count: state.count - 1
     }
     default:
     return state;

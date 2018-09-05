@@ -2,16 +2,32 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 
+import { increment } from '../actions';
+
+
 //NOTE: this CounterReduxExampleContainer based on this blog post: https://daveceddia.com/how-does-redux-work/
+
+// const increaseCount = ({ dispatch }) => {
+//   // let input
+//   console.log('hello from increaseCount...')
+// }
 
 class CounterReduxExampleContainer extends React.Component {
 
+
+  // increment = () => {
+  //   console.warn('increment called!!!')
+  //   // this.props.dispatch({ type: 'INCREMENT' });
+  //   this.props.dispatch({ type: 'ADD_ONE' });
+  // }
+
   increment = () => {
-    // this.props.dispatch({ type: 'INCREMENT' });
-    this.props.dispatch({ type: 'ADD_ONE' });
+    console.warn('increment called!!!')
+    this.props.dispatch( increment() ) //dispatching increment(), which returns a plain object from actions/index.js...
   }
 
   decrement = () => {
+    console.warn('decrement called!!!')
     // this.props.dispatch({ type: 'DECREMENT' });
     this.props.dispatch({ type: 'SUBTRACT_ONE' });
   }
