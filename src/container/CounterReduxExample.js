@@ -7,11 +7,13 @@ import { connect } from 'react-redux';
 class CounterReduxExample extends React.Component {
 
   increment = () => {
-    this.props.dispatch({ type: 'INCREMENT' });
+    // this.props.dispatch({ type: 'INCREMENT' });
+    this.props.dispatch({ type: 'ADD_ONE' });
   }
 
   decrement = () => {
-    this.props.dispatch({ type: 'DECREMENT' });
+    // this.props.dispatch({ type: 'DECREMENT' });
+    this.props.dispatch({ type: 'SUBTRACT_ONE' });
   }
 
   render() {
@@ -44,8 +46,8 @@ function mapStateToProps(state) {
   // console.log('mapStateToProps - state.counter.count is: ', state.counter.count)
   return {
     // count: state.count
-    count: state.reducerExample.count
-    // count: state.counter.count
+    // count: state.reducerExample.count
+    count: state.counter.count
   };
 }
 

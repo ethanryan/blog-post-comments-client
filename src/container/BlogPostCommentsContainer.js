@@ -7,6 +7,9 @@ import CreatePostForm from '../components/CreatePostForm'
 import AllPosts from '../components/AllPosts'
 
 //redux
+//my state contains two things:
+//posts, an array of objects, and
+//comments, an array of objects
 
 class BlogPostCommentsContainer extends Component {
   constructor(props) {
@@ -32,7 +35,6 @@ class BlogPostCommentsContainer extends Component {
     this.handleToggleEditForm = this.handleToggleEditForm.bind(this);
     this.handleSubmitComment = this.handleSubmitComment.bind(this);
   }
-
 
   componentDidMount() {
     api.getPosts()
@@ -96,14 +98,12 @@ class BlogPostCommentsContainer extends Component {
     }
   }
 
-
   sortCommentsById(commentsArray) {
     commentsArray.sort(function(first, second) {
       return first.id - second.id; //sort comments by updated_at, first to last
     });
     return commentsArray
   }
-
 
   handleToggleEditForm(comment) {
     var comments = this.state.comments.filter((eachComment) => { return eachComment.id !== comment.id })
@@ -118,7 +118,6 @@ class BlogPostCommentsContainer extends Component {
 
 
   render() {
-
     console.log('state from BlogPostCommentsContainer: ', this.state)
     return(
       <div>
