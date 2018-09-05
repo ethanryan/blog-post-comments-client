@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import rootReducer from './reducers';
 
 // import App from './App';
-import CounterReduxExample from './container/CounterReduxExample';
+import CounterReduxExampleContainer from './container/CounterReduxExampleContainer';
 
 const store = createStore(rootReducer)
 
@@ -25,8 +25,8 @@ store.dispatch = function dispatchAndLog(action) {
 ReactDOM.render(
   <Provider store={store}>
 
-    <CounterReduxExample />
-    
+    <CounterReduxExampleContainer />
+
     {/* <App /> */}
 
   </Provider>,
