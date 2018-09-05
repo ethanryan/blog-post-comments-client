@@ -41,9 +41,9 @@ class CounterReduxExampleContainer extends React.Component {
 
 function mapStateToProps(state) {
   console.log('mapStateToProps - state is: ', state)
-  console.log('mapStateToProps - state.reducerExample is: ', state.reducerExample)
-  console.log('mapStateToProps - state.reducerExample.count is: ', state.reducerExample.count)
-  // console.log('mapStateToProps - state.counter.count is: ', state.counter.count)
+  // console.log('mapStateToProps - state.reducerExample is: ', state.reducerExample)
+  // console.log('mapStateToProps - state.reducerExample.count is: ', state.reducerExample.count)
+  console.log('mapStateToProps - state.counter.count is: ', state.counter.count)
   return {
     // count: state.count
     // count: state.reducerExample.count
