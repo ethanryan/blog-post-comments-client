@@ -2,9 +2,9 @@ const initialState = {
   count: 42
 };
 
-function reducer(state = initialState, action) {
-  console.log('reducerExample - state is: ', state)
-  console.log('reducerExample - action is: ', action)
+function counterReducerExample(state = initialState, action) {
+  console.log('counterReducerExample - state is: ', state)
+  console.log('counterReducerExample - action is: ', action)
   switch(action.type) {
     case 'INCREMENT':
       return {
@@ -19,4 +19,4 @@ function reducer(state = initialState, action) {
   }
 }
 
-export default reducer;
+export default counterReducerExample;
